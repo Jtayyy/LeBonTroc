@@ -27,5 +27,6 @@ create table posts
     object_id int not null,
     title TEXT not null,
     publication date not null,
+    description TEXT not null,
     adresse TEXT not null
 );
