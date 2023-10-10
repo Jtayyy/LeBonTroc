@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class LebontrocApplication {
-
 	public static void main(String[] args) {
-		SpringApplication.run(LebontrocApplication.class, args);
-	}
 
+		SpringApplication.run(LebontrocApplication.class, args);
+
+	}
 }
