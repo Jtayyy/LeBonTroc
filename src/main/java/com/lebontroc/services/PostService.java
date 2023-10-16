@@ -12,7 +12,7 @@ import java.util.List;
 public class PostService {
     private final PostDao postDao;
 
-    public List<Post> findAll() {
+    public Iterable<Post> findAll() {
         return postDao.findAll();
     }
 }

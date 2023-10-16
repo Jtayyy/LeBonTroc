@@ -7,5 +7,3 @@ INSERT INTO objects (id, user_id, name, image, description, condition, type) VAL
 INSERT INTO objects (id, user_id, name, image, description, condition, type) VALUES (3, 2, 'Armoire à chaussettes', 'Armoire', 'Ma bonne vieille armoire à chaussettes', 'presque_neuf', 'Meuble');
 
 INSERT INTO posts (id, object_id, title, publication, description, adresse) VALUES (1, 2, 'Echange vélo fonctionnel', '2023-10-09', 'Echange mon vélo acheté en 2021, par pitié prenez-le il est maudis', '29 avenue de la République 75002 Paris');
-
-

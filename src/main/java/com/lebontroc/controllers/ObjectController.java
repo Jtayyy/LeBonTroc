@@ -19,7 +19,7 @@ import java.util.List;
 public class ObjectController {
     private final ObjectService objectService;
     @GetMapping("")
-    public List<Object> getAllObject() {
+    public Iterable<Object> getAllObject() {
         return objectService.findAll();
     }
 }

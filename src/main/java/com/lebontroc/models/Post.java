@@ -2,6 +2,7 @@ package com.lebontroc.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -10,20 +11,17 @@ import java.time.LocalDate;
 @Table(name = "posts")
 @Getter
 @Setter
+@NoArgsConstructor
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToOne
-    @JoinColumn(name = "object_id")
+    @JoinColumn(name = "object_id", referencedColumnName = "id")
     private Object object;
-    @Column(name = "title")
     private String title;
-    @Column(name = "publication")
     private LocalDate publication;
-    @Column(name = "description")
-    private String desc;
-    @Column(name = "adresse")
+    private String description;
     private String adresse;
 }

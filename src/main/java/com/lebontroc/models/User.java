@@ -1,34 +1,35 @@
 package com.lebontroc.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "firstname")
+    private Integer id;
     private String firstname;
-    @Column(name = "lastname")
     private String lastname;
-    @Column(name = "pseudo")
     private String pseudo;
-    @Column(name = "email")
     private String email;
-    @Column(name = "birthdate")
-    private LocalDate birthday;
-    @Column(name = "adresse")
+    private Date birthdate;
     private String adresse;
-    @Column(name = "admin")
     private boolean admin;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Object> objects;
     // private float note;
 }
