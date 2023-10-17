@@ -12,7 +12,16 @@ import java.util.List;
 public class PostService {
     private final PostDao postDao;
 
-    public Iterable<Post> findAll() {
+    public List<Post> findAll() {
         return postDao.findAll();
+    }
+    public Post findById(int id) {
+        return postDao.findById(id).orElseThrow(RuntimeException::new);
+    }
+    public void delete(Post post) {
+        postDao.delete(post);
+    }
+    public void save(Post post) {
+        postDao.save(post);
     }
 }

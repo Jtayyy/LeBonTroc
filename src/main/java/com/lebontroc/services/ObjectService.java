@@ -13,7 +13,7 @@ public class ObjectService {
 
     private final ObjectDao objectDao;
 
-    public Iterable<Object> findAll() {
+    public List<Object> findAll() {
         return objectDao.findAll();
     }
 }

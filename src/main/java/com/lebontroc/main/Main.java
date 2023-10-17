@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Component
@@ -24,13 +25,18 @@ public class Main implements CommandLineRunner {
 
         System.out.println("FindMe");
 
-        Iterable<User> users = userService.findAll();
+        List<User> users = userService.findAll();
         System.out.println(users);
 
-        Iterable<Object> objects = objectService.findAll();
+        List<Object> objects = objectService.findAll();
         System.out.println(objects);
-        Iterable<Post> posts = postService.findAll();
+        List<Post> posts = postService.findAll();
         System.out.println(posts);
 
+        System.out.println(postService.findById(1).getTitle());
+
+        User claude = new User(4, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
+        userService.save(claude);
+        System.out.println(userService.findById(4));
     }
 }

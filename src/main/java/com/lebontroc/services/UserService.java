@@ -1,9 +1,9 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.UserDao;
+import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,16 @@ import java.util.List;
 public class UserService {
     private final UserDao userDao;
 
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         return userDao.findAll();
+    }
+    public User findById(int id) {
+        return userDao.findById(id).orElseThrow(RuntimeException::new);
+    }
+    public void delete(User user) {
+        userDao.delete(user);
+    }
+    public void save(User user) {
+        userDao.save(user);
     }
 }

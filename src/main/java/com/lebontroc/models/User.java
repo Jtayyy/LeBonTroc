@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -25,7 +26,7 @@ public class User {
     private String lastname;
     private String pseudo;
     private String email;
-    private Date birthdate;
+    private LocalDate birthdate;
     private String adresse;
     private boolean admin;
     @OneToMany(mappedBy = "user")
