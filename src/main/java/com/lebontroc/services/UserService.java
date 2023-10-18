@@ -1,6 +1,7 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.UserDao;
+import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,11 +23,6 @@ public class UserService {
         userDao.delete(user);
     }
     public void save(User user) {
-        userDao.save(user);
-    }
-
-    public void modify(User user) {
-        userDao.deleteById(user.getId());
         userDao.save(user);
     }
 }
