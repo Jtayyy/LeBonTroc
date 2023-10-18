@@ -23,20 +23,17 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println("FindMe");
-
-        List<User> users = userService.findAll();
-        System.out.println(users);
-
-        List<Object> objects = objectService.findAll();
-        System.out.println(objects);
-        List<Post> posts = postService.findAll();
-        System.out.println(posts);
+//        List<User> users = userService.findAll();
+//        System.out.println(users);
+//        List<Object> objects = objectService.findAll();
+//        System.out.println(objects);
+//        List<Post> posts = postService.findAll();
+//        System.out.println(posts);
 
         System.out.println(postService.findById(1).getTitle());
 
-        User claude = new User(4, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
-        userService.save(claude);
-        System.out.println(userService.findById(4));
+        User claude = new User(1, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objectService.findAll());
+        userService.modify(userService.findById(3));
+//        System.out.println(userService.findById(4));
     }
 }
