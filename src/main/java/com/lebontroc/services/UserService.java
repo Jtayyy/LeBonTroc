@@ -1,11 +1,15 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.UserDao;
+import com.lebontroc.DTO.UserDto;
+import com.lebontroc.DTO.UserMapper;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -22,7 +26,15 @@ public class UserService {
     public void delete(User user) {
         userDao.delete(user);
     }
-    public void save(User user) {
+
+    @Transactional
+    public void addUser(UserDto userDto) {
+        User user;
+        try {
+            user = UserMapper.fromDto(userDto, null, null);
+        } catch (IOException e) {
+            throw new RuntimeException("Error with User image", e);
+        }
         userDao.save(user);
     }
 }

@@ -15,9 +15,7 @@ public class PostService {
     public List<Post> findAll() {
         return postDao.findAll();
     }
-    public Post findById(int id) {
-        return postDao.findById(id).orElseThrow(RuntimeException::new);
-    }
+    public Post findById(int id) {return postDao.findById(id).orElseThrow(RuntimeException::new);}
     public void delete(Post post) {
         postDao.delete(post);
     }

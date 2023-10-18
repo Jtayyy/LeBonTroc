@@ -1,5 +1,6 @@
 package com.lebontroc.main;
 
+import com.lebontroc.DTO.UserDto;
 import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
@@ -25,6 +26,8 @@ public class Main implements CommandLineRunner {
 
         System.out.println("FindMe");
 
+        User user = userService.findById(2);
+        System.out.println(user);
         List<User> users = userService.findAll();
         System.out.println(users);
 
@@ -33,10 +36,10 @@ public class Main implements CommandLineRunner {
         List<Post> posts = postService.findAll();
         System.out.println(posts);
 
-        System.out.println(postService.findById(1).getTitle());
-
-        User claude = new User(4, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
-        userService.save(claude);
-        System.out.println(userService.findById(4));
+        //System.out.println(postService.findById(1).getTitle());
+        //UserDto claude = new UserDto( "Boui", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false);
+        //userService.addUser(claude);
+        //System.out.println(userService.findById(5).getFirstname());
+        userService.delete(userService.findById(5));
     }
 }
