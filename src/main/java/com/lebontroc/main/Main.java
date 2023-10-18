@@ -1,5 +1,7 @@
 package com.lebontroc.main;
 
+import com.lebontroc.DTO.UserDto;
+import com.lebontroc.DTO.UserMapper;
 import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
@@ -35,8 +37,11 @@ public class Main implements CommandLineRunner {
 
         System.out.println(postService.findById(1).getTitle());
 
-        User claude = new User(4, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
-        //userService.save(claude);
-        System.out.println(userService.findById(4));
+        User claude = new User(null, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
+        UserDto claudeDto = UserMapper.toDto(claude);
+        userService.addUser(claudeDto);
+        claudeDto.setFirstname("Pierre");
+        userService.updateStudent(claudeDto, 3);
+        System.out.println(userService.findById(3));
     }
 }
