@@ -17,8 +17,6 @@ public class Object {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToOne(mappedBy = "object")
-    private Post post;
     private String name;
     private String image;
     private String description;
