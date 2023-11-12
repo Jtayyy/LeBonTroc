@@ -15,11 +15,16 @@ public class PostService {
     public List<Post> findAll() {
         return postDao.findAll();
     }
-    public Post findById(int id) {return postDao.findById(id).orElseThrow(RuntimeException::new);}
+    public Post findById(int id) {return postDao.findById(id).orElseThrow(() -> new RuntimeException("Post not found for id: " + id));}
+    public void save(Post post) {postDao.save(post); }
     public void delete(Post post) {
         postDao.delete(post);
     }
-    public void save(Post post) {
-        postDao.save(post);
+    public void deleteById(int id) {
+        if (postDao.existsById(id)) {
+            postDao.deleteById(id);
+        } else {
+            throw new RuntimeException("Post not found for id: " + id);
+        }
     }
 }

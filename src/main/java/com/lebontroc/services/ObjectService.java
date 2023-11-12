@@ -23,29 +23,17 @@ public class ObjectService {
         return objectDao.findAll();
     }
     public Object findById(int id) {
-        return objectDao.findById(id).orElseThrow(RuntimeException::new);
+        return objectDao.findById(id).orElseThrow(() -> new RuntimeException("Object not found for id: " + id));
     }
+    public void save(Object object){objectDao.save(object); }
     public void delete(Object object) {
         objectDao.delete(object);
     }
-
-    @Transactional
-    public void addObject(Object object) {
-        try{
-            objectDao.save(object);
-        } catch (Exception e){
-            throw new RuntimeException("Error while creating the object");
-        }
-    }
-
-    @Transactional
-    public void updateObject(Object object){
-        objectDao.findById(object.getId())
-                .orElseThrow(() -> new NoSuchElementException("Object doesn't exist"));
-        try{
-            objectDao.save(object);
-        } catch (Exception e){
-            throw new RuntimeException("Error while updating the object");
+    public void deleteById(int id) {
+        if (objectDao.existsById(id)) {
+            objectDao.deleteById(id);
+        } else {
+            throw new RuntimeException("Object not found for id: " + id);
         }
     }
 }

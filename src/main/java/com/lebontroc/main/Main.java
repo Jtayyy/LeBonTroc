@@ -31,19 +31,47 @@ public class Main implements CommandLineRunner {
 
         //List<User> users = userService.findAll();
         //System.out.println(users);
-        User user = userService.findAll().get(0);
-        System.out.println(user);
-        List<Object> objects = objectService.findAll();
-        System.out.println(objects);
-        Object objectps = objectService.findAll().get(3);
-        objectService.delete(objectps);
+        User user = userService.findById(1);
+        Object object = objectService.findById(1);
+//        System.out.println(user);
+//        userService.deleteById(3);
 
-        System.out.println(objectService.findAll());
+//        Object object_test = new Object();
+//        object_test.setUser(user);
+//        object_test.setName("PS5");
+//        object_test.setImage("PS5_image");
+//        object_test.setDescription("Console de gamerz");
+//        object_test.setCondition("Pas ouf");
+//        object_test.setType("Console de jeux");
+//        objectService.save(object_test);
+//        System.out.println(objectService.findById(0));
+//        object_test = objectService.findById(4);
+//        object_test.setCondition("Etat neuf");
+//        objectService.save(object_test);
+//        objectService.delete(objectService.findById(5));
+//        objectService.deleteById(5);
+
 //        List<Post> posts = postService.findAll();
 //        System.out.println(posts);
 //
-//        System.out.println(postService.findById(1).getTitle());
+//        Post post_test = new Post();
+//        post_test.setObject(object_test);
+//        post_test.setTitle("PS5 conte Switch");
+//        post_test.setPublication(LocalDate.now());
+//        post_test.setDescription("Enchange ma PS5 1To contre une Nitendo Switch Zelda special edition");
+//        post_test.setAdresse(object_test.getUser().getAdresse());
 //
+//        postService.save(post_test);
+//        post_test = postService.findById(1);
+//        post_test.setTitle("PS5 contre saucisson");
+//        postService.save(post_test);
+//        postService.delete(postService.findById(2));
+
+//        postService.findAll();
+//        System.out.println(posts);
+//        postService.delete(postService.findById(2));
+//        postService.deleteById(3);
+//        System.out.println(postService.findById(1).getTitle());
 //        User claude = new User(null, "Claude", "Chabat", "alou", "alou@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, objects);
 //        UserDto claudeDto = UserMapper.toDto(claude);
 //        userService.addUser(claudeDto);

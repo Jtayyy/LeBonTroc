@@ -21,10 +21,17 @@ public class UserService {
         return userDao.findAll();
     }
     public User findById(int id) {
-        return userDao.findById(id).orElseThrow(RuntimeException::new);
+        return userDao.findById(id).orElseThrow(() -> new RuntimeException("User not found for id: " + id));
     }
     public void delete(User user) {
         userDao.delete(user);
+    }
+    public void deleteById(int id) {
+        if (userDao.existsById(id)) {
+            userDao.deleteById(id);
+        } else {
+            throw new RuntimeException("User not found for id: " + id);
+        }
     }
 
     @Transactional
