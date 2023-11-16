@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -26,7 +25,7 @@ public class User {
     private String pseudo;
     private String email;
     private LocalDate birthdate;
-    private String adresse;
+    private String address;
     private boolean admin;
     @OneToMany(mappedBy = "user")
     @JsonIgnore
@@ -40,7 +39,7 @@ public class User {
         this.pseudo = builder.pseudo;
         this.email = builder.email;
         this.birthdate = builder.birthdate;
-        this.adresse = builder.adresse;
+        this.address = builder.address;
         this.admin = builder.admin;
         this.objects = builder.objects;
     }
@@ -54,7 +53,7 @@ public class User {
         private String pseudo;
         private String email;
         private LocalDate birthdate;
-        private String adresse;
+        private String address;
         private boolean admin;
         private List<Object> objects;
 
@@ -87,8 +86,8 @@ public class User {
             this.objects = objects;
             return this;
         }
-        public Builder adresse(String adresse) {
-            this.adresse = adresse;
+        public Builder address(String address) {
+            this.address = address;
             return this;
         }
         public Builder admin(boolean admin) {

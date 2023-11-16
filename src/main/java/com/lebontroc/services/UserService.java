@@ -3,6 +3,7 @@ package com.lebontroc.services;
 import com.lebontroc.DAO.UserDao;
 import com.lebontroc.DTO.UserDto;
 import com.lebontroc.DTO.UserMapper;
+import com.lebontroc.models.Object;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,6 @@ public class UserService {
     public User findById(int id) {
         return userDao.findById(id).orElseThrow(() -> new RuntimeException("User not found for id: " + id));
     }
-    public void delete(User user) {
-        userDao.delete(user);
-    }
     public void deleteById(int id) {
         if (userDao.existsById(id)) {
             userDao.deleteById(id);
@@ -35,7 +33,7 @@ public class UserService {
     }
 
     @Transactional
-    public void addUser(UserDto userDto) {
+    public void add(UserDto userDto) {
         User user;
         try {
             user = UserMapper.fromDto(userDto, null, null);
@@ -46,7 +44,7 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUser(UserDto userDto, int id) {
+    public void update(UserDto userDto, int id) {
         userDao.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("User doesn't exist"));
         User user;
@@ -57,4 +55,6 @@ public class UserService {
         }
         userDao.save(user);
     }
+
+    public List<Object> getObjectsOfUser(int id){ return userDao.getAllObjectsFromUser(id); }
 }

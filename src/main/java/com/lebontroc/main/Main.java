@@ -32,7 +32,13 @@ public class Main implements CommandLineRunner {
         //List<User> users = userService.findAll();
         //System.out.println(users);
         User user = userService.findById(1);
-        Object object = objectService.findById(1);
+        List<Object> list_object =  userService.getObjectsOfUser(user.getId());
+        System.out.println(list_object);
+
+
+        Object object = objectService.findById(2);
+        List<Post> list_post = objectService.getPostsOfObject(object.getId());
+        System.out.println(list_post);
 //        System.out.println(user);
 //        userService.deleteById(3);
 

@@ -17,11 +17,11 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToOne
-    @JoinColumn(name = "object_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "object_id")
     private Object object;
     private String title;
     private LocalDate publication;
     private String description;
-    private String adresse;
+    private String address;
 }

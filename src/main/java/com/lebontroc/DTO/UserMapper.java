@@ -15,7 +15,7 @@ public class UserMapper {
                 .pseudo(dto.getPseudo())
                 .email(dto.getEmail())
                 .birthdate(dto.getBirthdate())
-                .adresse(dto.getAdresse())
+                .address(dto.getAddress())
                 .admin(dto.isAdmin())
                 .objects(objectListe)
                 .build();
@@ -28,7 +28,7 @@ public class UserMapper {
                 .pseudo(user.getPseudo())
                 .email(user.getEmail())
                 .birthdate(user.getBirthdate())
-                .adresse(user.getAdresse())
+                .address(user.getAddress())
                 .admin(user.isAdmin())
                 //.objects(user.getObjects())
                 .build();

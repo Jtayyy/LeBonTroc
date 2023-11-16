@@ -1,17 +1,11 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.ObjectDao;
-import com.lebontroc.DTO.UserDto;
-import com.lebontroc.DTO.UserMapper;
 import com.lebontroc.models.Object;
-import com.lebontroc.models.User;
+import com.lebontroc.models.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Component
 @RequiredArgsConstructor
@@ -25,9 +19,19 @@ public class ObjectService {
     public Object findById(int id) {
         return objectDao.findById(id).orElseThrow(() -> new RuntimeException("Object not found for id: " + id));
     }
-    public void save(Object object){objectDao.save(object); }
-    public void delete(Object object) {
-        objectDao.delete(object);
+    public void add(Object object){objectDao.save(object); }
+
+    public void update(Object updatedObject, int id) {
+        Object existingObject = objectDao.findById(id).orElseThrow(() -> new RuntimeException("Object not found for id: " + id));
+
+        existingObject.setUser(updatedObject.getUser());
+        existingObject.setName(updatedObject.getName());
+        existingObject.setImage(updatedObject.getImage());
+        existingObject.setDescription(updatedObject.getDescription());
+        existingObject.setCondition(updatedObject.getCondition());
+        existingObject.setType(updatedObject.getType());
+
+        objectDao.save(existingObject);
     }
     public void deleteById(int id) {
         if (objectDao.existsById(id)) {
@@ -36,4 +40,6 @@ public class ObjectService {
             throw new RuntimeException("Object not found for id: " + id);
         }
     }
+
+    public List<Post> getPostsOfObject(int id){ return objectDao.getAllPostsFromObject(id); }
 }

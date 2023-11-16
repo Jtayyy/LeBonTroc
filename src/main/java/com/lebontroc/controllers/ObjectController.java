@@ -1,14 +1,10 @@
 package com.lebontroc.controllers;
 
 import com.lebontroc.models.Object;
-import com.lebontroc.models.User;
+import com.lebontroc.models.Post;
 import com.lebontroc.services.ObjectService;
-import com.lebontroc.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +18,14 @@ public class ObjectController {
     public Iterable<Object> getAllObject() {
         return objectService.findAll();
     }
+    @GetMapping("/{id}")
+    public Object getObjectById(@PathVariable int id) { return objectService.findById(id); }
+    @PostMapping("")
+    public void addObject (@RequestBody Object object) { objectService.add(object);}
+    @PostMapping("/{id}")
+    public void updateObject(@RequestBody Object object, @PathVariable int id) { objectService.update(object, id);}
+    @DeleteMapping("/{id}")
+    public void deleteObject (@PathVariable int id) { objectService.deleteById(id); }
+    @GetMapping("/{id}/posts")
+    public List<Post> getPostsOfObject(@PathVariable int id) { return objectService.getPostsOfObject(id); }
 }

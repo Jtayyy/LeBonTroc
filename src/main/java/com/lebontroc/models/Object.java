@@ -1,9 +1,12 @@
 package com.lebontroc.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "objects")
@@ -22,5 +25,8 @@ public class Object {
     private String description;
     private String condition;
     private String type;
+    @OneToMany(mappedBy = "object")
+    @JsonIgnore
+    private List<Post> posts;
 
 }
