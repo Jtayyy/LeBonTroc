@@ -4,9 +4,10 @@ create table users
     firstname TEXT not null,
     lastname TEXT not null,
     pseudo TEXT not null,
+    password TEXT not null,
     email TEXT not null,
     birthdate date not null,
-    adresse TEXT not null,
+    address TEXT not null,
     admin bool not null
 );
 
@@ -28,5 +29,5 @@ create table posts
     title TEXT not null,
     publication date not null,
     description TEXT not null,
-    adresse TEXT not null
+    address TEXT not null
 );

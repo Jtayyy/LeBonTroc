@@ -31,14 +31,17 @@ public class Main implements CommandLineRunner {
 
         //List<User> users = userService.findAll();
         //System.out.println(users);
-        User user = userService.findById(1);
-        List<Object> list_object =  userService.getObjectsOfUser(user.getId());
-        System.out.println(list_object);
+        User newUser = new User(null, "Bernard", "Deau","BrDo", "345552", "BerBo@gmail.com", LocalDate.now(), "29 avenue de la République 75002 Paris", false, null);
+        UserDto newUserDto = UserMapper.toDto(newUser);
+        userService.update(newUserDto, 4);
+        userService.login("BerBo@gmail.com", "345552");
+//        List<Object> list_object =  userService.getObjectsOfUser(user.getId());
+//        System.out.println(user);
 
 
-        Object object = objectService.findById(2);
-        List<Post> list_post = objectService.getPostsOfObject(object.getId());
-        System.out.println(list_post);
+//        Object object = objectService.findById(2);
+//        List<Post> list_post = objectService.getPostsOfObject(object.getId());
+//        System.out.println(list_post);
 //        System.out.println(user);
 //        userService.deleteById(3);
 

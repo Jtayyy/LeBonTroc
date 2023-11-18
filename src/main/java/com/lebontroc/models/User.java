@@ -23,6 +23,7 @@ public class User {
     private String firstname;
     private String lastname;
     private String pseudo;
+    private String password;
     private String email;
     private LocalDate birthdate;
     private String address;
@@ -37,6 +38,7 @@ public class User {
         this.firstname = builder.firstname;
         this.lastname = builder.lastname;
         this.pseudo = builder.pseudo;
+        this.password =builder.password;
         this.email = builder.email;
         this.birthdate = builder.birthdate;
         this.address = builder.address;
@@ -51,6 +53,7 @@ public class User {
         private String firstname;
         private String lastname;
         private String pseudo;
+        private String password;
         private String email;
         private LocalDate birthdate;
         private String address;
@@ -72,6 +75,10 @@ public class User {
         }
         public Builder pseudo(String pseudo) {
             this.pseudo = pseudo;
+            return this;
+        }
+        public Builder password(String password){
+            this.password = password;
             return this;
         }
         public Builder email(String email) {

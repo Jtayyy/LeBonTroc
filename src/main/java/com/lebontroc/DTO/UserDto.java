@@ -12,15 +12,17 @@ public class UserDto {
     private String firstname;
     private String lastname;
     private String pseudo;
+    private String password;
     private String email;
     private LocalDate birthdate;
     private String address;
     private boolean admin;
     //private List<Object> objects;
-    public UserDto(String firstname, String lastname, String pseudo, String email, LocalDate birthdate, String address, boolean admin) {
+    public UserDto(String firstname, String lastname, String pseudo, String password, String email, LocalDate birthdate, String address, boolean admin) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.pseudo = pseudo;
+        this.password = password;
         this.email = email;
         this.birthdate = birthdate;
         this.address = address;
