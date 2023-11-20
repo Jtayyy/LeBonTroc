@@ -1,13 +1,15 @@
 package com.lebontroc.DTO;
 
 import com.lebontroc.models.Object;
+import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import java.io.IOException;
+import java.io.PipedOutputStream;
 import java.util.List;
 
 public class UserMapper {
 
-    public static User fromDto(UserDto dto, Integer id, List<Object> objectListe) throws IOException{
+    public static User fromDto(UserDto dto, Integer id, List<Object> objectListe, List<Post> favoritePosts) throws IOException{
         return new User.Builder()
                 .id(id)
                 .firstname(dto.getFirstname())
@@ -19,6 +21,7 @@ public class UserMapper {
                 .address(dto.getAddress())
                 .admin(dto.isAdmin())
                 .objects(objectListe)
+                .favorites(favoritePosts)
                 .build();
     }
 
@@ -32,7 +35,6 @@ public class UserMapper {
                 .birthdate(user.getBirthdate())
                 .address(user.getAddress())
                 .admin(user.isAdmin())
-                //.objects(user.getObjects())
                 .build();
     }
 }

@@ -17,7 +17,6 @@ public class UserDto {
     private LocalDate birthdate;
     private String address;
     private boolean admin;
-    //private List<Object> objects;
     public UserDto(String firstname, String lastname, String pseudo, String password, String email, LocalDate birthdate, String address, boolean admin) {
         this.firstname = firstname;
         this.lastname = lastname;

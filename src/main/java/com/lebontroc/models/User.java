@@ -29,11 +29,10 @@ public class User {
     private String address;
     private boolean admin;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Object> objects;
-    @OneToMany
-    private List<Post> posts;
     @ManyToMany
-    @JoinTable( name = "favorites",
+    @JoinTable( name = "favorite_posts",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "post_id"))
     private List<Post> favorites;
@@ -50,7 +49,6 @@ public class User {
         this.address = builder.address;
         this.admin = builder.admin;
         this.objects = builder.objects;
-        this.posts = builder.posts;
         this.favorites = builder.favorites;
     }
     public User() {
@@ -67,7 +65,6 @@ public class User {
         private String address;
         private boolean admin;
         private List<Object> objects;
-        private List<Post> posts;
         private List<Post> favorites;
 
         public Builder id (Integer id) {
@@ -101,11 +98,6 @@ public class User {
         }
         public Builder objects(List<Object> objects) {
             this.objects = objects;
-            return this;
-        }
-
-        public Builder posts(List<Post> posts) {
-            this.posts = posts;
             return this;
         }
 

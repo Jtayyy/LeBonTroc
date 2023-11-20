@@ -8,4 +8,4 @@ INSERT INTO objects (id, user_id, name, image, description, condition, type) VAL
 
 INSERT INTO posts (id, object_id, title, publication, description, address) VALUES (1, 2, 'Echange vélo fonctionnel', '2023-10-09', 'Echange mon vélo acheté en 2021, par pitié prenez-le il est maudis', '29 avenue de la République 75002 Paris');
 
-INSERT INTO favorites(id, user_id, post_id) VALUES (1, 3, 1);
+INSERT INTO favorite_posts(id, user_id, post_id) VALUES (1, 3, 1);

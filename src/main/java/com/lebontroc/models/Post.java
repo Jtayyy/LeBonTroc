@@ -1,5 +1,6 @@
 package com.lebontroc.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Post {
     private int id;
     @ManyToOne
     @JoinColumn(name = "object_id")
+    @JsonIgnore
     private Object object;
     private String title;
     private LocalDate publication;

@@ -19,9 +19,6 @@ public interface UserDao extends JpaRepository<User, Integer>{
     @Query("SELECT u FROM User u WHERE u.email= :userEmail")
     Optional<User> findUserByEmail(String userEmail);
 
-    @Query("SELECT u.posts FROM User u WHERE u.id = :id")
-    List<Post> findPostsByUserId(int id);
-
-    @Query("SELECT u.favorites FROM User u WHERE u.id = :id")
-    List<Post> findFavoritesByUserId(int id);
+    @Query("SELECT u.favorites FROM User u WHERE u.id = :userId")
+    List<Post> findFavoritesByUserId(int userId);
 }

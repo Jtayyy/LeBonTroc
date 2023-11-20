@@ -2,6 +2,7 @@ package com.lebontroc.controllers;
 
 import com.lebontroc.DTO.UserDto;
 import com.lebontroc.models.Object;
+import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import com.lebontroc.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,8 @@ public class UserController {
     public void deleteUser(@PathVariable int id) { userService.deleteById(id); }
     @GetMapping("/{id}/objects")
     public List<Object> getObjectsOfUser(@PathVariable int id) { return userService.findAllObjectsFromUser(id); }
+
+    @GetMapping("/{id}/favorites")
+    public List<Post> getFavoritesByUserId(@PathVariable int id) { return userService.findFavoritesByUserId(id); }
 
 }

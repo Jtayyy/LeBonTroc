@@ -32,7 +32,7 @@ create table posts
     address TEXT not null
 );
 
-create table favorites
+create table favorite_posts
 (
     id SERIAL PRIMARY KEY,
     user_id int not null,
