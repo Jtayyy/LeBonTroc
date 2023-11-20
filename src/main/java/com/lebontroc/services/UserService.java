@@ -4,6 +4,7 @@ import com.lebontroc.DAO.UserDao;
 import com.lebontroc.DTO.UserDto;
 import com.lebontroc.DTO.UserMapper;
 import com.lebontroc.models.Object;
+import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -79,5 +80,9 @@ public class UserService {
         return user;
     }
 
-    public List<Object> getObjectsOfUser(int id){ return userDao.getAllObjectsFromUser(id); }
+    public List<Post> findPostsByUserId(int id){ return userDao.findPostsByUserId(id); }
+
+    public List<Post> findFavoritesByUserId(int id){ return userDao.findFavoritesByUserId(id); }
+
+    public List<Object> findAllObjectsFromUser(int id){ return userDao.findAllObjectsFromUser(id); }
 }

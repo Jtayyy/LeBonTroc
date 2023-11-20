@@ -31,3 +31,10 @@ create table posts
     description TEXT not null,
     address TEXT not null
 );
+
+create table favorites
+(
+    id SERIAL PRIMARY KEY,
+    user_id int not null,
+    post_id int not null
+)

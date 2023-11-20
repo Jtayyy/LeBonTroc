@@ -30,6 +30,6 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) { userService.deleteById(id); }
     @GetMapping("/{id}/objects")
-    public List<Object> getObjectsOfUser(@PathVariable int id) { return userService.getObjectsOfUser(id); }
+    public List<Object> getObjectsOfUser(@PathVariable int id) { return userService.findAllObjectsFromUser(id); }
 
 }
