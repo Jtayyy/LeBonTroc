@@ -25,8 +25,8 @@ public class Object {
     private String description;
     private String condition;
     private String type;
+    private int value;
     @OneToMany(mappedBy = "object")
     @JsonIgnore
     private List<Post> posts;
-
 }

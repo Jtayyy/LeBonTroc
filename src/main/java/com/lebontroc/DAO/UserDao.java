@@ -21,4 +21,8 @@ public interface UserDao extends JpaRepository<User, Integer>{
 
     @Query("SELECT u.favorites FROM User u WHERE u.id = :userId")
     List<Post> findFavoritesByUserId(int userId);
+
+    @Query("SELECT DISTINCT p FROM Post p JOIN FETCH p.object o WHERE o.user.id = :userId")
+    List<Post> findPostsByUserId(int userId);
+
 }

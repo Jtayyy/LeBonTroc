@@ -19,7 +19,8 @@ create table objects
     image TEXT not null,
     description TEXT not null,
     condition TEXT not null,
-    type TEXT not null
+    type TEXT not null,
+    value int not null
 );
 
 create table posts
