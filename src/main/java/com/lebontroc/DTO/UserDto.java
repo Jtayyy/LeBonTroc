@@ -2,12 +2,14 @@ package com.lebontroc.DTO;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserDto {
     private String firstname;
     private String lastname;

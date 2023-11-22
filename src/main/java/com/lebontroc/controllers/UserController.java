@@ -25,7 +25,7 @@ public class UserController {
     @PostMapping("/register")
     public void registerNewUser(@RequestBody UserDto userDto) { userService.register(userDto);}
     @PostMapping("/login")
-    public void loginUser (@RequestBody String email, @RequestBody String password) { userService.login(email, password);}
+    public User loginUser (@RequestBody UserDto userDto) { return userService.login(userDto.getEmail(), userDto.getPassword());}
     @PostMapping("/{id}/update")
     public void updateUser(@RequestBody UserDto userDto, @PathVariable int id) { userService.update(userDto, id); }
     @DeleteMapping("/{id}")
