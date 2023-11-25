@@ -99,6 +99,6 @@ public class Main implements CommandLineRunner {
 //        userService.updateUser(claudeDto, 3);
 //        System.out.println(userService.findById(3));
 
-        System.out.println(postService.findPostsByObjectCondition("usage"));
+        System.out.println(postService.findPostsByObjectCondition("Neuf"));
     }
 }
