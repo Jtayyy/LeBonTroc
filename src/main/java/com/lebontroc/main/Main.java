@@ -39,12 +39,8 @@ public class Main implements CommandLineRunner {
 //        userService.register(newUserDto);
 //        userService.update(newUserDto, 4);
 //        userService.login("BerBo@gmail.com", "345552");
-        User usertest = userService.findById(2);
-        Post posttest = postService.findById(1);
-        FavoritePost favoritePosttest = new FavoritePost();
-        favoritePosttest.setUser(usertest);
-        favoritePosttest.setPost(posttest);
-        favoritePostService.add(favoritePosttest);
+//        Object object = objectService.findById(1);
+//        System.out.println(postService.findPostsByObjectValue(object, 0.2f));
 //
 //        System.out.println(userService.findFavoritesByUserId(1));
 //        System.out.println(userService.findFavoritesByUserId(3));

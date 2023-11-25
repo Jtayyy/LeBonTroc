@@ -46,4 +46,8 @@ public class PostService {
         return object.getUser();
     }
     public List<Post> searchPost(String search){ return postDao.searchPost(search); }
+
+    public List<Post> findPostsByObjectValue(Object object, float delta){
+        return postDao.findPostsByObjectValue((int) (object.getValue()*(1-delta)), (int) (object.getValue()*(1+delta)));
+    }
 }

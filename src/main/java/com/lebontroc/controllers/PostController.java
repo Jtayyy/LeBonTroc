@@ -1,5 +1,6 @@
 package com.lebontroc.controllers;
 
+import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import com.lebontroc.services.PostService;
@@ -21,6 +22,8 @@ public class PostController {
     public Post getPostById(@PathVariable int id) { return postService.findById(id); }
     @GetMapping("/{id}/user")
     public User getUserByPostId(@PathVariable int id) { return postService.findUserByPostId(id); }
+    @GetMapping("/{delta}/posts")
+    public List<Post> updatePost(@RequestBody Object object, @PathVariable float delta) { return postService.findPostsByObjectValue(object, delta); }
     @PostMapping("")
     public void addPost (@RequestBody Post post) { postService.add(post);}
     @PostMapping("/{id}")
