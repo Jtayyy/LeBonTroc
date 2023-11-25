@@ -32,4 +32,8 @@ public class PostController {
     public void deletePost (@PathVariable int id) { postService.deleteById(id); }
     @GetMapping("/search/{search}")
     public List<Post> searchPost(@PathVariable String search) { return postService.searchPost(search); }
+    @GetMapping("/type/{type}")
+    public Iterable<Post> getPostsByObjectType(@PathVariable String type) { return postService.findPostsByObjectType(type); }
+    @GetMapping("/condition/{condition}")
+    public Iterable<Post> getPostsByObjectCondition(@PathVariable String condition) { return postService.findPostsByObjectCondition(condition); }
 }

@@ -17,4 +17,9 @@ public interface PostDao extends JpaRepository<Post, Integer> {
     @Query("SELECT p FROM Post p JOIN p.object o WHERE o.value >= :minValue AND o.value <= :maxValue")
     List<Post> findPostsByObjectValue(int minValue, int maxValue);
 
+    @Query("SELECT p FROM Post p JOIN p.object o WHERE o.type = :type")
+    List<Post> findPostByObjectType(String type);
+
+    @Query("SELECT p FROM Post p JOIN p.object o WHERE o.condition = :condition")
+    List<Post> findPostByObjectCondition(String condition);
 }

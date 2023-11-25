@@ -50,4 +50,12 @@ public class PostService {
     public List<Post> findPostsByObjectValue(Object object, float delta){
         return postDao.findPostsByObjectValue((int) (object.getValue()*(1-delta)), (int) (object.getValue()*(1+delta)));
     }
+
+    public List<Post> findPostsByObjectType(String type){
+        return postDao.findPostByObjectType(type);
+    }
+
+    public List<Post> findPostsByObjectCondition(String condition){
+        return postDao.findPostByObjectCondition(condition);
+    }
 }

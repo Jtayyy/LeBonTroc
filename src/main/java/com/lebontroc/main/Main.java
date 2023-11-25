@@ -98,5 +98,7 @@ public class Main implements CommandLineRunner {
 //        claudeDto.setFirstname("Pierre");
 //        userService.updateUser(claudeDto, 3);
 //        System.out.println(userService.findById(3));
+
+        System.out.println(postService.findPostsByObjectCondition("usage"));
     }
 }
