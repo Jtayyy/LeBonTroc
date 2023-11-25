@@ -1,7 +1,9 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.PostDao;
+import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
+import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -38,5 +40,10 @@ public class PostService {
         }
     }
 
+    public User findUserByPostId(int id){
+        Post post = findById(id);
+        Object object = post.getObject();
+        return object.getUser();
+    }
     public List<Post> searchPost(String search){ return postDao.searchPost(search); }
 }

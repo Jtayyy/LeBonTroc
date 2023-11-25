@@ -34,6 +34,8 @@ public class UserController {
     public List<Object> getObjectsOfUser(@PathVariable int id) { return userService.findAllObjectsFromUser(id); }
     @GetMapping("/{id}/posts")
     public List<Post> getPostsOfUser(@PathVariable int id) { return userService.findPostsByUserId(id); }
+    @GetMapping("/{id}/liked-posts")
+    public List<Post> getPostsLikedByOtherByUserId(@PathVariable int id) { return userService.findPostsLikedByOtherByUserId(id); }
     @GetMapping("/{id}/favorites")
     public List<Post> getFavoritesByUserId(@PathVariable int id) { return userService.findFavoritesByUserId(id); }
     @GetMapping("/search/{search}")

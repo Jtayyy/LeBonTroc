@@ -1,6 +1,7 @@
 package com.lebontroc.controllers;
 
 import com.lebontroc.models.Post;
+import com.lebontroc.models.User;
 import com.lebontroc.services.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,8 @@ public class PostController {
     public Iterable<Post> getAllPost() { return postService.findAll(); }
     @GetMapping("/{id}")
     public Post getPostById(@PathVariable int id) { return postService.findById(id); }
+    @GetMapping("/{id}/user")
+    public User getUserByPostId(@PathVariable int id) { return postService.findUserByPostId(id); }
     @PostMapping("")
     public void addPost (@RequestBody Post post) { postService.add(post);}
     @PostMapping("/{id}")

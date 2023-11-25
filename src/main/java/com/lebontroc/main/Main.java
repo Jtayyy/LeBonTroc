@@ -2,9 +2,11 @@ package com.lebontroc.main;
 
 import com.lebontroc.DTO.UserDto;
 import com.lebontroc.DTO.UserMapper;
+import com.lebontroc.models.FavoritePost;
 import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
+import com.lebontroc.services.FavoritePostService;
 import com.lebontroc.services.ObjectService;
 import com.lebontroc.services.PostService;
 import com.lebontroc.services.UserService;
@@ -23,6 +25,7 @@ public class Main implements CommandLineRunner {
     private final UserService userService;
     private final ObjectService objectService;
     private final PostService postService;
+    private  final FavoritePostService favoritePostService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -36,6 +39,12 @@ public class Main implements CommandLineRunner {
 //        userService.register(newUserDto);
 //        userService.update(newUserDto, 4);
 //        userService.login("BerBo@gmail.com", "345552");
+        User usertest = userService.findById(2);
+        Post posttest = postService.findById(1);
+        FavoritePost favoritePosttest = new FavoritePost();
+        favoritePosttest.setUser(usertest);
+        favoritePosttest.setPost(posttest);
+        favoritePostService.add(favoritePosttest);
 //
 //        System.out.println(userService.findFavoritesByUserId(1));
 //        System.out.println(userService.findFavoritesByUserId(3));

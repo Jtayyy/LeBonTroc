@@ -74,6 +74,6 @@ public class UserService {
     public List<Object> findAllObjectsFromUser(int id){ return userDao.findAllObjectsFromUser(id); }
 
     public List<Post> findPostsByUserId(int id){ return userDao.findPostsByUserId(id); }
-
+    public List<Post> findPostsLikedByOtherByUserId(int id){ return userDao.findPostsLikedByOtherByUserId(id); }
     public List<User> searchUser(String search){ return userDao.searchUser(search); }
 }
