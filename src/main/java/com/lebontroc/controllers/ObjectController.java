@@ -30,4 +30,7 @@ public class ObjectController {
     public List<Post> getPostsOfObject(@PathVariable int id) { return objectService.getPostsOfObject(id); }
     @GetMapping("/search/{search}")
     public List<Object> searchObject(@PathVariable String search) { return objectService.searchObject(search); }
+
+    @GetMapping("/{search}/value-recommendation")
+    public int getValueProposition(@PathVariable String search) { return objectService.findValueProposition(search); }
 }

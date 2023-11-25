@@ -44,4 +44,15 @@ public class ObjectService {
     public List<Post> getPostsOfObject(int id){ return objectDao.getAllPostsFromObject(id); }
 
     public List<Object> searchObject(String search){ return objectDao.searchObject(search); }
+
+    public int findValueProposition(String search) {
+        List<Object> objects= objectDao.searchObject(search);
+        if (objects.isEmpty()) { return 0; }
+        int recommendedvalue = 0;
+        for (Object object : objects) {
+            recommendedvalue += object.getValue();
+        }
+        recommendedvalue = recommendedvalue/objects.size();
+        return recommendedvalue;
+    }
 }
