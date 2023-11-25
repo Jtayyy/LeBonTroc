@@ -14,4 +14,7 @@ public interface ObjectDao extends JpaRepository<Object, Integer> {
     @Query("SELECT o.posts FROM Object o WHERE o.id= :objectId")
     List<Post> getAllPostsFromObject(int objectId);
 
+    @Query("SELECT o FROM Object o WHERE LOWER(o.name) LIKE LOWER(:search) OR LOWER(o.description) LIKE LOWER(:search)")
+    List<Object> searchObject(String search);
+
 }

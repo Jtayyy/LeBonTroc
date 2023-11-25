@@ -37,4 +37,6 @@ public class PostService {
             throw new RuntimeException("Post not found for id: " + id);
         }
     }
+
+    public List<Post> searchPost(String search){ return postDao.searchPost(search); }
 }

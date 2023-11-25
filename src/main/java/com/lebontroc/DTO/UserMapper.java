@@ -3,8 +3,8 @@ package com.lebontroc.DTO;
 import com.lebontroc.models.Object;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
+
 import java.io.IOException;
-import java.io.PipedOutputStream;
 import java.util.List;
 
 public class UserMapper {

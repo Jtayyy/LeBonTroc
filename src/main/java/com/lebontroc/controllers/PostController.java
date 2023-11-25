@@ -5,6 +5,8 @@ import com.lebontroc.services.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RequestMapping("posts")
 @RestController
@@ -22,4 +24,6 @@ public class PostController {
     public void updatePost(@RequestBody Post post, @PathVariable int id) { postService.update(post, id); }
     @DeleteMapping("/{id}")
     public void deletePost (@PathVariable int id) { postService.deleteById(id); }
+    @GetMapping("/search/{search}")
+    public List<Post> searchPost(@PathVariable String search) { return postService.searchPost(search); }
 }

@@ -28,4 +28,6 @@ public class ObjectController {
     public void deleteObject (@PathVariable int id) { objectService.deleteById(id); }
     @GetMapping("/{id}/posts")
     public List<Post> getPostsOfObject(@PathVariable int id) { return objectService.getPostsOfObject(id); }
+    @GetMapping("/search/{search}")
+    public List<Object> searchObject(@PathVariable String search) { return objectService.searchObject(search); }
 }

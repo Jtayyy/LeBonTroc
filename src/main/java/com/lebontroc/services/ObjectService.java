@@ -42,4 +42,6 @@ public class ObjectService {
     }
 
     public List<Post> getPostsOfObject(int id){ return objectDao.getAllPostsFromObject(id); }
+
+    public List<Object> searchObject(String search){ return objectDao.searchObject(search); }
 }

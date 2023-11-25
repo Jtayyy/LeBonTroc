@@ -6,7 +6,6 @@ import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import com.lebontroc.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.support.ApplicationObjectSupport;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +36,7 @@ public class UserController {
     public List<Post> getPostsOfUser(@PathVariable int id) { return userService.findPostsByUserId(id); }
     @GetMapping("/{id}/favorites")
     public List<Post> getFavoritesByUserId(@PathVariable int id) { return userService.findFavoritesByUserId(id); }
+    @GetMapping("/search/{search}")
+    public List<User> searchUser(@PathVariable String search) { return userService.searchUser(search); }
 
 }

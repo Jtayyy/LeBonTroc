@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.io.IOException;
 import java.util.List;
 
@@ -75,4 +74,6 @@ public class UserService {
     public List<Object> findAllObjectsFromUser(int id){ return userDao.findAllObjectsFromUser(id); }
 
     public List<Post> findPostsByUserId(int id){ return userDao.findPostsByUserId(id); }
+
+    public List<User> searchUser(String search){ return userDao.searchUser(search); }
 }
