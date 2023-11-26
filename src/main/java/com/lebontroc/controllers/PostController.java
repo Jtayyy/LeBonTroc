@@ -1,6 +1,6 @@
 package com.lebontroc.controllers;
 
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import com.lebontroc.services.PostService;
@@ -23,7 +23,7 @@ public class PostController {
     @GetMapping("/{id}/user")
     public User getUserByPostId(@PathVariable int id) { return postService.findUserByPostId(id); }
     @GetMapping("/{delta}/posts")
-    public List<Post> updatePost(@RequestBody Object object, @PathVariable float delta) { return postService.findPostsByObjectValue(object, delta); }
+    public List<Post> updatePost(@RequestBody Item item, @PathVariable float delta) { return postService.findPostsByItemValue(item, delta); }
     @PostMapping("")
     public void addPost (@RequestBody Post post) { postService.add(post);}
     @PostMapping("/{id}")
@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping("/search/{search}")
     public List<Post> searchPost(@PathVariable String search) { return postService.searchPost(search); }
     @GetMapping("/type/{type}")
-    public Iterable<Post> getPostsByObjectType(@PathVariable String type) { return postService.findPostsByObjectType(type); }
+    public Iterable<Post> getPostsByItemType(@PathVariable String type) { return postService.findPostsByItemType(type); }
     @GetMapping("/condition/{condition}")
-    public Iterable<Post> getPostsByObjectCondition(@PathVariable String condition) { return postService.findPostsByObjectCondition(condition); }
+    public Iterable<Post> getPostsByItemCondition(@PathVariable String condition) { return postService.findPostsByItemCondition(condition); }
 }

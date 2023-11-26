@@ -19,9 +19,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "object_id")
+    @JoinColumn(name = "item_id")
     @JsonIgnore
-    private Object object;
+    private Item item;
     private String title;
     private LocalDate publication;
     private String description;

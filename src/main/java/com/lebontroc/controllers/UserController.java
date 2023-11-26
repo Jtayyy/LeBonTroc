@@ -1,7 +1,7 @@
 package com.lebontroc.controllers;
 
 import com.lebontroc.DTO.UserDto;
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import com.lebontroc.services.UserService;
@@ -30,8 +30,8 @@ public class UserController {
     public void updateUser(@RequestBody UserDto userDto, @PathVariable int id) { userService.update(userDto, id); }
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable int id) { userService.deleteById(id); }
-    @GetMapping("/{id}/objects")
-    public List<Object> getObjectsOfUser(@PathVariable int id) { return userService.findAllObjectsFromUser(id); }
+    @GetMapping("/{id}/items")
+    public List<Item> getItemsOfUser(@PathVariable int id) { return userService.findAllItemsFromUser(id); }
     @GetMapping("/{id}/posts")
     public List<Post> getPostsOfUser(@PathVariable int id) { return userService.findPostsByUserId(id); }
     @GetMapping("/{id}/liked-posts")

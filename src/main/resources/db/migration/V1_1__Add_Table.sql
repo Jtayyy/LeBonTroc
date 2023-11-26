@@ -11,7 +11,7 @@ create table users
     admin bool not null
 );
 
-create table objects
+create table items
 (
     id SERIAL PRIMARY KEY,
     user_id int not null,
@@ -26,7 +26,7 @@ create table objects
 create table posts
 (
     id SERIAL PRIMARY KEY,
-    object_id int not null,
+    item_id int not null,
     title TEXT not null,
     publication date not null,
     description TEXT not null,

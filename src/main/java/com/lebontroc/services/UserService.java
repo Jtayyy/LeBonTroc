@@ -3,7 +3,7 @@ package com.lebontroc.services;
 import com.lebontroc.DAO.UserDao;
 import com.lebontroc.DTO.UserDto;
 import com.lebontroc.DTO.UserMapper;
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
@@ -71,7 +71,7 @@ public class UserService {
 
     public List<Post> findFavoritesByUserId(int id){ return userDao.findFavoritesByUserId(id); }
 
-    public List<Object> findAllObjectsFromUser(int id){ return userDao.findAllObjectsFromUser(id); }
+    public List<Item> findAllItemsFromUser(int id){ return userDao.findAllItemsFromUser(id); }
 
     public List<Post> findPostsByUserId(int id){ return userDao.findPostsByUserId(id); }
     public List<Post> findPostsLikedByOtherByUserId(int id){ return userDao.findPostsLikedByOtherByUserId(id); }

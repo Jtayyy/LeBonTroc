@@ -1,6 +1,6 @@
 package com.lebontroc.DAO;
 
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>{
 
-    @Query("SELECT u.objects FROM User u WHERE u.id= :userId")
-    List<Object> findAllObjectsFromUser(int userId);
+    @Query("SELECT u.items FROM User u WHERE u.id= :userId")
+    List<Item> findAllItemsFromUser(int userId);
 
     @Query("SELECT u FROM User u WHERE u.email= :userEmail")
     Optional<User> findUserByEmail(String userEmail);
@@ -22,10 +22,10 @@ public interface UserDao extends JpaRepository<User, Integer>{
     @Query("SELECT u.favorites FROM User u WHERE u.id = :userId")
     List<Post> findFavoritesByUserId(int userId);
 
-    @Query("SELECT DISTINCT p FROM Post p JOIN FETCH p.object o WHERE o.user.id = :userId")
+    @Query("SELECT DISTINCT p FROM Post p JOIN FETCH p.item i WHERE i.user.id = :userId")
     List<Post> findPostsByUserId(int userId);
 
-    @Query("SELECT DISTINCT p FROM Post p JOIN FETCH p.object o JOIN FETCH o.user u WHERE u.id = :userId AND p.id IN (SELECT fp.post.id FROM FavoritePost fp)")
+    @Query("SELECT DISTINCT p FROM Post p JOIN FETCH p.item i JOIN FETCH i.user u WHERE u.id = :userId AND p.id IN (SELECT fp.post.id FROM FavoritePost fp)")
     List<Post> findPostsLikedByOtherByUserId(int userId);
 
     @Query("SELECT u FROM User u WHERE LOWER(u.pseudo) LIKE LOWER(:search)")

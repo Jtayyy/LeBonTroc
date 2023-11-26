@@ -1,7 +1,7 @@
 package com.lebontroc.services;
 
 import com.lebontroc.DAO.PostDao;
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class PostService {
         Post existingPost = postDao.findById(id)
                 .orElseThrow(() -> new RuntimeException("Post not found for id: " + id));
 
-        existingPost.setObject(updatedPost.getObject());
+        existingPost.setItem(updatedPost.getItem());
         existingPost.setTitle(updatedPost.getTitle());
         existingPost.setPublication(updatedPost.getPublication());
         existingPost.setDescription(updatedPost.getDescription());
@@ -42,20 +42,20 @@ public class PostService {
 
     public User findUserByPostId(int id){
         Post post = findById(id);
-        Object object = post.getObject();
-        return object.getUser();
+        Item item = post.getItem();
+        return item.getUser();
     }
     public List<Post> searchPost(String search){ return postDao.searchPost(search); }
 
-    public List<Post> findPostsByObjectValue(Object object, float delta){
-        return postDao.findPostsByObjectValue((int) (object.getValue()*(1-delta)), (int) (object.getValue()*(1+delta)));
+    public List<Post> findPostsByItemValue(Item item, float delta){
+        return postDao.findPostsByItemValue((int) (item.getValue()*(1-delta)), (int) (item.getValue()*(1+delta)));
     }
 
-    public List<Post> findPostsByObjectType(String type){
-        return postDao.findPostByObjectType(type);
+    public List<Post> findPostsByItemType(String type){
+        return postDao.findPostByItemType(type);
     }
 
-    public List<Post> findPostsByObjectCondition(String condition){
-        return postDao.findPostByObjectCondition(condition);
+    public List<Post> findPostsByItemCondition(String condition){
+        return postDao.findPostByItemCondition(condition);
     }
 }

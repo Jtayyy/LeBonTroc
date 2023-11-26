@@ -1,7 +1,7 @@
 package com.lebontroc.DAO;
 
 import com.lebontroc.models.FavoritePost;
-import com.lebontroc.models.Object;
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import com.lebontroc.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

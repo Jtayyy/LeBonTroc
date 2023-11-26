@@ -9,11 +9,11 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "objects")
+@Table(name = "items")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Object {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,7 +26,7 @@ public class Object {
     private String condition;
     private String type;
     private int value;
-    @OneToMany(mappedBy = "object")
+    @OneToMany(mappedBy = "item")
     @JsonIgnore
     private List<Post> posts;
 }

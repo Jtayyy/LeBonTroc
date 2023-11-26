@@ -6,7 +6,7 @@ VALUES ('Alain', 'Chabat', 'alou','1234','alou@gmail.com', '1956-02-14', '29 ave
        ('Anouk', 'Koukou', 'Anoukou','G48K!!J!!', 'anoukou@gmail.com', '1998-12-13', '29 rue du Moulin 75002 Paris', false),
        ('Root', 'Root', 'Admin','UnMdpSafe', 'admin@outlook.fr', '2000-01-02', '1 rue du Temple 75000 Paris', true);
 
-INSERT INTO objects (user_id, name, image, description, condition, type, value)
+INSERT INTO items (user_id, name, image, description, condition, type, value)
 VALUES
     (1, 'Ordinateur portable Dell XPS', 'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/xps-13-9315/media-gallery/umber/notebook-xps-13-9315-umber-gallery-3.psd?fmt=pjpg&pscan=auto&scl=1&wid=4108&hei=2832&qlt=100,1&resMode=sharp2&size=4108,2832&chrss=full&imwidth=5000', 'Ordinateur portable Dell XPS en excellent état, avec processeur i7 et SSD 512 Go', 'Excellent état', 'Électronique', 1200),
     (1, 'Téléphone iPhone 13', 'https://media.ldlc.com/r1600/ld/products/00/05/93/08/LD0005930815_1.jpg', 'iPhone 13 en parfait état, couleur argent, 128 Go de stockage', 'Bon état', 'Électronique', 900),
@@ -32,7 +32,7 @@ VALUES
     (1, 'Velo', 'https://www.mygreensport.com/wp-content/uploads/2020/02/velo-de-ville-renaissance-6-vitesses-by-arcade-cycles-bleu-ocean-mat.jpg', 'Un vélo pas si beau', 'usage', 'Sport et Loisirs', 120),
     (2, 'Armoire à chaussettes', 'https://ae01.alicdn.com/kf/Sb253ca41fcaf4e8b94b105eab00d7c42J.jpg_640x640Q90.jpg_.webp', 'Ma bonne vieille armoire à chaussettes', 'presque_neuf', 'Mobilier', 70);
 
-INSERT INTO posts (object_id, title, publication, description, address)
+INSERT INTO posts (item_id, title, publication, description, address)
 VALUES
     (1, 'Vente ordinateur portable Dell XPS', '2023-11-25', 'Ordinateur portable Dell XPS en excellent état à vendre. Processeur i7, SSD 512 Go. Prix négociable.', '123 Rue de l Ordinateur'),
     (2, 'iPhone 13 à vendre', '2023-11-26', 'Téléphone iPhone 13 en bon état à vendre. Couleur argent, 128 Go de stockage. Livraison disponible.', '456 Avenue du Smartphone'),

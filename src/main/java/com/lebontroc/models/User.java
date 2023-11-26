@@ -30,7 +30,7 @@ public class User {
     private boolean admin;
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private List<Object> objects;
+    private List<Item> items;
     @ManyToMany
     @JoinTable( name = "favorite_posts",
                 joinColumns = @JoinColumn(name = "user_id"),
@@ -48,7 +48,7 @@ public class User {
         this.birthdate = builder.birthdate;
         this.address = builder.address;
         this.admin = builder.admin;
-        this.objects = builder.objects;
+        this.items = builder.items;
         this.favorites = builder.favorites;
     }
     public User() {
@@ -64,7 +64,7 @@ public class User {
         private LocalDate birthdate;
         private String address;
         private boolean admin;
-        private List<Object> objects;
+        private List<Item> items;
         private List<Post> favorites;
 
         public Builder id (Integer id) {
@@ -96,8 +96,8 @@ public class User {
             this.birthdate = birthdate;
             return this;
         }
-        public Builder objects(List<Object> objects) {
-            this.objects = objects;
+        public Builder items(List<Item> items) {
+            this.items = items;
             return this;
         }
 
