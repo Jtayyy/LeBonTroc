@@ -27,7 +27,7 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        System.out.println("Hello World");
+        System.out.println("Hello World");
 //
 //        List<User> users = userService.findAll();
 //        System.out.println(users);
@@ -96,6 +96,6 @@ public class Main implements CommandLineRunner {
 //        userService.updateUser(claudeDto, 3);
 //        System.out.println(userService.findById(3));
 
-        System.out.println(postService.findPostsByItemCondition("Neuf"));
+        //System.out.println(postService.findPostsByItemCondition("Neuf"));
     }
 }

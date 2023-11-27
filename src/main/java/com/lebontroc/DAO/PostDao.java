@@ -1,11 +1,13 @@
 package com.lebontroc.DAO;
 
+import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PostDao extends JpaRepository<Post, Integer> {
@@ -21,4 +23,7 @@ public interface PostDao extends JpaRepository<Post, Integer> {
 
     @Query("SELECT p FROM Post p JOIN p.item i WHERE i.condition = :condition")
     List<Post> findPostByItemCondition(String condition);
+
+    @Query("SELECT p.item FROM Post p WHERE p.id = :postId")
+    Optional<Item> findItemByPostId(int postId);
 }
