@@ -3,6 +3,7 @@ package com.lebontroc.services;
 import com.lebontroc.DAO.ItemDao;
 import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
+import com.lebontroc.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import java.util.List;
@@ -56,4 +57,9 @@ public class ItemService {
         recommendedvalue = recommendedvalue/items.size();
         return recommendedvalue;
     }
+    public User findUserByItemId(int id){
+        User user = itemDao.findUserByItemId(id).orElseThrow(() -> new RuntimeException("User not found for Item: " + id));
+        return user;
+    }
+
 }

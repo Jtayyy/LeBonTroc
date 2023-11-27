@@ -36,4 +36,6 @@ public class PostController {
     public Iterable<Post> getPostsByItemType(@PathVariable String type) { return postService.findPostsByItemType(type); }
     @GetMapping("/condition/{condition}")
     public Iterable<Post> getPostsByItemCondition(@PathVariable String condition) { return postService.findPostsByItemCondition(condition); }
+    @GetMapping("/{id}/item")
+    public Item getItemByPostId(@PathVariable int id) { return postService.findItemByPostId(id); }
 }

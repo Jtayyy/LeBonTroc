@@ -58,4 +58,10 @@ public class PostService {
     public List<Post> findPostsByItemCondition(String condition){
         return postDao.findPostByItemCondition(condition);
     }
+
+    public Item findItemByPostId(int id){
+        Item item = postDao.findItemByPostId(id).orElseThrow(() -> new RuntimeException("Item not found for Post: " + id));
+        return item;
+    }
+
 }

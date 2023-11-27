@@ -2,6 +2,7 @@ package com.lebontroc.controllers;
 
 import com.lebontroc.models.Item;
 import com.lebontroc.models.Post;
+import com.lebontroc.models.User;
 import com.lebontroc.services.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -33,4 +34,6 @@ public class ItemController {
 
     @GetMapping("/{search}/value-recommendation")
     public int getValueProposition(@PathVariable String search) { return itemService.findValueProposition(search); }
+    @GetMapping("/{id}/user")
+    public User getUserByItemId(@PathVariable int id) { return itemService.findUserByItemId(id); }
 }
