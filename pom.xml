@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 		<lombok.version>1.18.20</lombok.version>
 		<springdoc.version>2.2.0</springdoc.version>
+		<flyway.version>9.21.0</flyway.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,7 +53,7 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
-			<version>9.21.0</version>
+			<version>${flyway.version}</version>
 		</dependency>
 	</dependencies>
 
